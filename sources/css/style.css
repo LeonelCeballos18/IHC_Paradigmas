@@ -1,0 +1,65 @@
+body{
+    margin: 0;
+    padding: 0;
+}
+
+.button{
+    display: inline-block;
+    padding: 8px;
+}
+
+.button:active{
+    transform: scale(1.08);
+    transition: 0.3s;
+}
+
+.buttons{
+    display: inline-block;
+}
+
+.button img{
+    width: 60px;
+}
+
+.contbtns{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.buttons-container{
+    background-color: #0B2545;
+    width: 70%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px;
+    box-shadow: 1px 2px 75px -4px rgba(0,0,0,0.42);
+    -webkit-box-shadow: 1px 2px 75px -4px rgba(0,0,0,0.42);
+    -moz-box-shadow: 1px 2px 75px -4px rgba(0,0,0,0.42);
+}
+
+.board-container{
+    max-width: 800px;
+    width: 95%;
+    height: auto;
+    margin: auto;
+    justify-content: center;
+    display: flex;
+    border-radius: 5px;
+    padding: 20px 0px 20px 0px;
+}
+
+.board-container .casilla{
+    width: 100px;
+    height: 100px;
+    border: black solid 1px;
+}
+
+/*
+#134074 primario casillas
+#13315C secundario casillas
+#0B2545 no se
+#8DA9C4 ni idea
+#EEF4ED medio blanco
+*/
