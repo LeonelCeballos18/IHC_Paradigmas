@@ -1,6 +1,7 @@
 body{
     margin: 0;
     padding: 0;
+    background-color: #141D25 !important;
 }
 
 .button{
@@ -53,7 +54,14 @@ body{
 .board-container .casilla{
     width: 100px;
     height: 100px;
-    border: black solid 1px;
+}
+
+.p{
+    background-color: #134074;
+}
+
+.i{
+    background-color: #13315C;
 }
 
 /*
