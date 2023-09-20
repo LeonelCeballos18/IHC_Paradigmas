@@ -71,6 +71,14 @@ body {
   height: 200px;
 }
 
+.esconder{
+  display: none;
+}
+
+.mostrar{
+  display: block;
+}
+
 @media (min-width: 760px) {
   .pad {
     height: 350px;

@@ -5,8 +5,10 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="./sources/css/style.css">
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet"
-    integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+  <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@latest/dist/tf.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs/dist/tf.min.js"></script>
+  <script src="https://gorosito.red/componentes"></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
   <title>Marciano</title>
 </head>
@@ -53,11 +55,16 @@
         <p></p>
       </div>
       <div class="d-flex align-items-center justify-content-center p-4">
-        <button class="btn btn-primary" id="reiniciar">Reiniciar</button>
+        <button class="btn btn-primary m-2" id="reiniciar">Reiniciar</button>
+        <button class="btn btn-primary m-2" id="camara">Camara</button>
+      </div>
+      <div class="d-flex align-items-center justify-content-center p-4">
+        <reconocer-manos class="btn btn-primary m-2" izq="fnManoDer" der="fnManoIzq">Camara</reconocer-manos>
       </div>
     </div>
 
 </body>
+<script src="./js/camara.js"></script>
 <script src="./js/hammer.min.js"></script>
 
 <!--Touch - Swipe -->
