@@ -52,3 +52,8 @@ btnCamara.addEventListener('click', ()=>{
     btnCamara.classList.toggle('esconder');
     btnCamara.textContent = 'Botones';
 })
+
+window.onload = () => {
+    const contCm = document.getElementById('camara');
+    contCm.classList.add('esconder');
+}

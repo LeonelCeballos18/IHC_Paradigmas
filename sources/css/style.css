@@ -72,11 +72,11 @@ body {
 }
 
 .esconder{
-  display: none;
+  display: none !important;
 }
 
 .mostrar{
-  display: block;
+  display: block !important;
 }
 
 @media (min-width: 760px) {
