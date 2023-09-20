@@ -45,15 +45,3 @@ function validatePosition(typePosition) {
 hammer.on('swipeleft swiperight swipeup swipedown', event => {
     validatePosition(event.type)
 })
-
-
-const btnCamara = document.getElementById('camara');
-btnCamara.addEventListener('click', ()=>{
-    btnCamara.classList.toggle('esconder');
-    btnCamara.textContent = 'Botones';
-})
-
-window.onload = () => {
-    const contCm = document.getElementById('camara');
-    contCm.classList.add('esconder');
-}

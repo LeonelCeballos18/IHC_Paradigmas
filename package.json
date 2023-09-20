@@ -1,6 +1,16 @@
 {
-  "dependencies": {
-    "@mediapipe/hands": "^0.4.1675469240",
-    "@tensorflow/tfjs": "^4.11.0"
+  "name": "gestures",
+  "version": "0.0.1",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "browser-sync start --server --files src/*.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "browser-sync": "^2.27.11"
   }
 }

@@ -2,14 +2,18 @@
 <html lang="en">
 
 <head>
-  <meta charset="UTF-8">
+  <meta http-equiv="Content-Type" content="text/html" charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="./sources/css/style.css">
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
-  <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@latest/dist/tf.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs/dist/tf.min.js"></script>
-  <script src="https://gorosito.red/componentes"></script>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+  <script src="https://unpkg.com/@tensorflow/tfjs-core@3.7.0/dist/tf-core.js"></script>
+  <script src="https://unpkg.com/@tensorflow/tfjs-backend-webgl@3.7.0/dist/tf-backend-webgl.js"></script>
+  <script
+  src="https://cdn.jsdelivr.net/npm/@tensorflow-models/hand-pose-detection@2.0.0/dist/hand-pose-detection.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@mediapipe/hands@0.4.1646424915/hands.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fingerpose@0.1.0/dist/fingerpose.min.js"></script>
   <title>Marciano</title>
 </head>
 
@@ -55,19 +59,123 @@
         <p></p>
       </div>
       <div class="d-flex align-items-center justify-content-center p-4">
-        <button class="btn btn-primary m-2" id="reiniciar">Reiniciar</button>
-        <button class="btn btn-primary m-2" id="camara">Camara</button>
-      </div>
-      <div class="d-flex align-items-center justify-content-center p-4">
-        <reconocer-manos class="btn btn-primary m-2" id="contCmr" izq="fnManoDer" der="fnManoIzq">Camara</reconocer-manos>
+        <button class="btn btn-primary" id="reiniciar">Reiniciar</button>
       </div>
     </div>
 
+    <!-- Gestos -->
+    <div class="container">
+
+      <div class="video">
+        <div id="video-container">
+          <video id="pose-video" class="layer" playsinline></video>
+          <canvas id="pose-canvas" class="layer"></canvas>
+          <div id="pose-result-left" class="layer pose-result"></div>
+          <br>
+          <div id="pose-result-right" class="layer pose-result"></div>
+        </div>
+      </div>
+  
+      <div class="debug">
+        <h2>Left Hand</h2>
+        <table id="summary-left" class="summary">
+          <thead>
+            <tr>
+              <th>Idx</th>
+              <th>Finger</th>
+              <th style="width: 110px">Curl</th>
+              <th style="width: 170px">Direction</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>0</td>
+              <td>Thumb</td>
+              <td><span id="curl-0">-</span></td>
+              <td><span id="dir-0">-</span></td>
+            </tr>
+            <tr>
+              <td>1</td>
+              <td>Index</td>
+              <td><span id="curl-1">-</span></td>
+              <td><span id="dir-1">-</span></td>
+            </tr>
+            <tr>
+              <td>2</td>
+              <td>Middle</td>
+              <td><span id="curl-2">-</span></td>
+              <td><span id="dir-2">-</span></td>
+            </tr>
+            <tr>
+              <td>3</td>
+              <td>Ring</td>
+              <td><span id="curl-3">-</span></td>
+              <td><span id="dir-3">-</span></td>
+            </tr>
+            <tr>
+              <td>4</td>
+              <td>Pinky</td>
+              <td><span id="curl-4">-</span></td>
+              <td><span id="dir-4">-</span></td>
+            </tr>
+          </tbody>
+        </table>
+        <br>
+        <h2>Right Hand</h2>
+        <table id="summary-right" class="summary">
+          <thead>
+            <tr>
+              <th>Idx</th>
+              <th>Finger</th>
+              <th style="width: 110px">Curl</th>
+              <th style="width: 170px">Direction</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>0</td>
+              <td>Thumb</td>
+              <td><span id="curl-0">-</span></td>
+              <td><span id="dir-0">-</span></td>
+            </tr>
+            <tr>
+              <td>1</td>
+              <td>Index</td>
+              <td><span id="curl-1">-</span></td>
+              <td><span id="dir-1">-</span></td>
+            </tr>
+            <tr>
+              <td>2</td>
+              <td>Middle</td>
+              <td><span id="curl-2">-</span></td>
+              <td><span id="dir-2">-</span></td>
+            </tr>
+            <tr>
+              <td>3</td>
+              <td>Ring</td>
+              <td><span id="curl-3">-</span></td>
+              <td><span id="dir-3">-</span></td>
+            </tr>
+            <tr>
+              <td>4</td>
+              <td>Pinky</td>
+              <td><span id="curl-4">-</span></td>
+              <td><span id="dir-4">-</span></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+  
+    </div>
+
 </body>
-<script src="./js/camara.js"></script>
+
 <script src="./js/hammer.min.js"></script>
 
 <!--Touch - Swipe -->
 <script src="./js/app.js"></script>
+
+<!--Gesture configuration -->
+<script type="module" src="./js/index.js"></script>
 
 </html>
