@@ -1,38 +1,66 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./sources/css/style.css">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
-    <title>Document</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="./sources/css/style.css">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+  <title>Marciano</title>
 </head>
+
 <body>
-    <div class="container-fluid bg">
-        <div class="board-container">
-            <div class="fila1">
-                <div class="casilla p" id="1" data-casilla="a1"></div>
-                <div class="casilla i" id="2" data-casilla="b1"></div>
-                <div class="casilla p" id="3" data-casilla="c1"></div>
-            </div>
-            <div class="fila2">
-                <div class="casilla i" id="4" data-casilla="a2"></div>
-                <div class="casilla p" id="5" data-casilla="b2"></div>
-                <div class="casilla i" id="6" data-casilla="c2"></div>
-            </div>
-            <div class="fila3">
-                <div class="casilla p" id="7" data-casilla="a3"></div>
-                <div class="casilla i" id="8" data-casilla="b3"></div>
-                <div class="casilla p" id="9" data-casilla="c3"></div>
-            </div>
+  <h1 class="text-white text-center p-3 m-0 d-flex justify-content-center">JUEGO DEL MARCIANITO</h1>
+
+  <!--Cuadricula-->
+  <div class="container-fluid bg">
+    <div class="board-container">
+      <div class="fila1">
+        <div class="casilla p d-flex justify-content-center align-items-center" id="1" data-casilla="a1"></div>
+        <div class="casilla i d-flex justify-content-center align-items-center" id="2" data-casilla="b1"></div>
+        <div class="casilla p d-flex justify-content-center align-items-center" id="3" data-casilla="c1"></div>
+      </div>
+      <div class="fila2">
+        <div class="casilla i d-flex justify-content-center align-items-center" id="4" data-casilla="a2"></div>
+        <div class="casilla p d-flex justify-content-center align-items-center" id="5" data-casilla="b2"></div>
+        <div class="casilla i d-flex justify-content-center align-items-center" id="6" data-casilla="c2"></div>
+      </div>
+      <div class="fila3">
+        <div class="casilla p d-flex justify-content-center align-items-center" id="7" data-casilla="a3"></div>
+        <div class="casilla i d-flex justify-content-center align-items-center" id="8" data-casilla="b3"></div>
+        <div class="casilla p d-flex justify-content-center align-items-center" id="9" data-casilla="c3"></div>
+      </div>
     </div>
-    <div class="contbtns">
-        <div class="buttons-container column">
-            <div class="button left "><img src="./sources/img/arrow-left-square-fill.svg" alt=""></div>
-            <div class="button down "><img src="./sources/img/arrow-down-square-fill.svg" alt=""></div>
-            <div class="button up "><img src="./sources/img/arrow-up-square-fill.svg" alt=""></div>
-            <div class="button right "><img src="./sources/img/arrow-right-square-fill.svg" alt=""></div>
-        </div>
+
+    <div class="d-flex justify-content-center align-items-center">
+      <h2 class="text-white m-0">Mueve al marcianito</h2>
     </div>
+
+    <div class="contbtns p-3">
+      <div class="buttons-container column">
+        <div class="button left img-fluid" onclick="validatePosition('swipeleft')"><img src="./sources/img/arrow-left-square-fill.svg" alt=""></div>
+        <div class="button down img-fluid" onclick="validatePosition('swipedown')"><img src="./sources/img/arrow-down-square-fill.svg" alt=""></div>
+        <div class="button up img-fluid" onclick="validatePosition('swipeup')"><img src="./sources/img/arrow-up-square-fill.svg" alt=""></div>
+        <div class="button right img-fluid" onclick="validatePosition('swiperight')"><img src="./sources/img/arrow-right-square-fill.svg" alt=""></div>
+      </div>
+    </div>
+
+    <!--Boton reiniciar-->
+    <div class="d-flex flex-column justify-content-center align-items-center">
+      <div class="pad bg-secondary rounded-4 w-75">
+        <p></p>
+      </div>
+      <div class="d-flex align-items-center justify-content-center p-4">
+        <button class="btn btn-primary" id="reiniciar">Reiniciar</button>
+      </div>
+    </div>
+
 </body>
+<script src="./js/hammer.min.js"></script>
+
+<!--Touch - Swipe -->
+<script src="./js/app.js"></script>
+
 </html>
