@@ -104,12 +104,12 @@ async function main() {
 
       if (!prediction.gestures.length) continue
 
-
       // find gesture with highest match score
       const result = prediction.gestures.reduce((p, c) => (p.score > c.score) ? p : c)
-      const found = gestureStrings[result.name]
+      const found = gestureStrings[result.name] // <---- here
+      const gname = result.name.toLowerCase();
       const chosenHand = hand.handedness.toLowerCase()
-      updateDebugInfo(prediction.poseData, chosenHand)
+      updateDebugInfo(prediction.poseData, chosenHand , gname)
 
       if (found !== gestureStrings.dont) {
         resultLayer[chosenHand].innerText = found
@@ -117,7 +117,6 @@ async function main() {
       }
 
       checkGestureCombination(chosenHand, prediction.poseData)
-
     }
     // ...and so on
     setTimeout(() => { estimateHands() }, 1000 / config.video.fps)
@@ -162,12 +161,15 @@ function drawPoint(ctx, x, y, r, color) {
 
 //<-----
 
-function updateDebugInfo(data, hand) {
+function updateDebugInfo(data, hand, gname) {
   const summaryTable = `#summary-${hand}`
   for (let fingerIdx in data) {
     document.querySelector(`${summaryTable} span#curl-${fingerIdx}`).innerHTML = data[fingerIdx][1]
     document.querySelector(`${summaryTable} span#dir-${fingerIdx}`).innerHTML = data[fingerIdx][2]
   }
+  console.log(gname);
+  const tGesture = document.getElementById('gesture');
+  tGesture.innerText = `${gname}`
 }
 
 window.addEventListener("DOMContentLoaded", () => {

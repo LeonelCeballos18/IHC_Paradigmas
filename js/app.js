@@ -41,7 +41,28 @@ function validatePosition(typePosition) {
     }
 }
 
+
+function validatePositionGesture() {
+    let position = document.getElementById('gesture').textContent;
+    switch (position) {
+        case (position === 'paper'): //left
+            placeImage(-3, (!(position >= 1 && position <= 3)))
+            break
+        case (position === 'rock'): // right
+            placeImage(3, (!(position >= 7 && position <= 9)))
+            break
+        case (position === 'victory') || (position === 'thumbs_up'): // up
+            placeImage(-1, (position !== 1 && position !== 4 && position !== 7))
+            break
+        case (position === 'scissors'): //down
+            placeImage(1, (position !== 3 && position !== 6 && position !== 9))
+            break
+    }
+}
+
 // Movimiento del marcianito
 hammer.on('swipeleft swiperight swipeup swipedown', event => {
     validatePosition(event.type)
+    validatePositionGesture()
 })
+
