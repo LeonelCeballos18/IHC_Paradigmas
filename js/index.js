@@ -68,7 +68,6 @@ async function main() {
       if (!containsHand) return
       pair.add(chosenHand)
     }
-
     
     addToPairIfCorrect(chosenHand)
 
@@ -160,6 +159,8 @@ function drawPoint(ctx, x, y, r, color) {
   ctx.fillStyle = color
   ctx.fill()
 }
+
+//<-----
 
 function updateDebugInfo(data, hand) {
   const summaryTable = `#summary-${hand}`

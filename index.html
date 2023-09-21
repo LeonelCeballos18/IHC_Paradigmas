@@ -58,26 +58,24 @@
       <div class="pad bg-secondary rounded-4 w-75">
         <p></p>
       </div>
+      <div id="video-container">
+        <video id="pose-video" class="layer rounded-4" playsinline></video>
+        <canvas id="pose-canvas" class="layer"></canvas>
+        <div id="pose-result-left" class="layer pose-result"></div>
+        <br>
+        <div id="pose-result-right" class="layer pose-result"></div>
+      </div>
       <div class="d-flex align-items-center justify-content-center p-4">
-        <button class="btn btn-primary" id="reiniciar">Reiniciar</button>
+        <button class="btn btn-primary m-2" id="reiniciar">Reiniciar</button>
+        <button class="btn btn-primary m-2" id="manos">Manos</button>
       </div>
     </div>
 
     <!-- Gestos -->
     <div class="container">
-
-      <div class="video">
-        <div id="video-container">
-          <video id="pose-video" class="layer" playsinline></video>
-          <canvas id="pose-canvas" class="layer"></canvas>
-          <div id="pose-result-left" class="layer pose-result"></div>
-          <br>
-          <div id="pose-result-right" class="layer pose-result"></div>
-        </div>
-      </div>
   
       <div class="debug">
-        <h2>Left Hand</h2>
+        <h2 class="title">Left Hand</h2>
         <table id="summary-left" class="summary">
           <thead>
             <tr>
@@ -121,7 +119,7 @@
           </tbody>
         </table>
         <br>
-        <h2>Right Hand</h2>
+        <h2 class="title">Right Hand</h2>
         <table id="summary-right" class="summary">
           <thead>
             <tr>

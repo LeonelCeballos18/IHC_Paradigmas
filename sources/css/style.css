@@ -94,9 +94,14 @@ body {
   padding: 0 20px;
 }
 
+.title{
+  display: none;
+}
+
 table.summary {
   border: 1px solid #333;
   border-collapse: collapse;
+  display: none;
 }
 
 table.summary td,
