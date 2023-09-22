@@ -1,4 +1,5 @@
 import { gestures } from "./gestures.js"
+import { img } from "./app.js"
 
 const config = {
   video: { width: 640, height: 480, fps: 30 }
@@ -159,18 +160,39 @@ function drawPoint(ctx, x, y, r, color) {
   ctx.fill()
 }
 
+const defaultPosition = 5
+let position = 5
+let container = document.getElementById(`${position}`)
+
+document.getElementById('reiniciar').addEventListener('click', () => {
+    container = document.getElementById(`${defaultPosition}`)
+    container.appendChild(img)
+})
+container.appendChild(img)
+
 function updateDebugInfo(data, hand, gname) {
   const summaryTable = `#summary-${hand}`
   for (let fingerIdx in data) {
     document.querySelector(`${summaryTable} span#curl-${fingerIdx}`).innerHTML = data[fingerIdx][1]
     document.querySelector(`${summaryTable} span#dir-${fingerIdx}`).innerHTML = data[fingerIdx][2]
   }
-  //Aqui <<<---- poner el codigo de app linea 45 - 61
-
-  //
 
   const tGesture = document.getElementById('gesture');
   tGesture.innerText = `${gname}`
+  //Aqui <<<---- poner el codigo de app linea 45 - 61
+  if(gname === 'paper'){
+    //console.log(2);
+    placeImage(-3, (!(position >= 1 && position <= 3)))
+  }
+  //
+}
+
+function placeImage(range, restrictions) {
+  if (restrictions) {
+      position = position + (range)
+      container = document.getElementById(`${position}`)
+      container.appendChild(img);
+  }
 }
 
 window.addEventListener("DOMContentLoaded", () => {
