@@ -159,15 +159,16 @@ function drawPoint(ctx, x, y, r, color) {
   ctx.fill()
 }
 
-//<-----
-
 function updateDebugInfo(data, hand, gname) {
   const summaryTable = `#summary-${hand}`
   for (let fingerIdx in data) {
     document.querySelector(`${summaryTable} span#curl-${fingerIdx}`).innerHTML = data[fingerIdx][1]
     document.querySelector(`${summaryTable} span#dir-${fingerIdx}`).innerHTML = data[fingerIdx][2]
   }
-  console.log(gname);
+  //Aqui <<<---- poner el codigo de app linea 45 - 61
+
+  //
+
   const tGesture = document.getElementById('gesture');
   tGesture.innerText = `${gname}`
 }

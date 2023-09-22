@@ -63,6 +63,5 @@ function validatePositionGesture() {
 // Movimiento del marcianito
 hammer.on('swipeleft swiperight swipeup swipedown', event => {
     validatePosition(event.type)
-    validatePositionGesture()
 })
 
