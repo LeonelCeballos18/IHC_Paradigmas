@@ -64,7 +64,3 @@ function validatePositionGesture() {
 hammer.on('swipeleft swiperight swipeup swipedown', event => {
     validatePosition(event.type)
 })
-
-export{
-    img
-}

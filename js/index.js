@@ -1,5 +1,4 @@
 import { gestures } from "./gestures.js"
-import { img } from "./app.js"
 
 const config = {
   video: { width: 640, height: 480, fps: 30 }
@@ -176,13 +175,15 @@ function updateDebugInfo(data, hand, gname) {
     document.querySelector(`${summaryTable} span#curl-${fingerIdx}`).innerHTML = data[fingerIdx][1]
     document.querySelector(`${summaryTable} span#dir-${fingerIdx}`).innerHTML = data[fingerIdx][2]
   }
-
-  const tGesture = document.getElementById('gesture');
-  tGesture.innerText = `${gname}`
   //Aqui <<<---- poner el codigo de app linea 45 - 61
-  if(gname === 'paper'){
-    //console.log(2);
+  if(gname === 'paper'){ //left
     placeImage(-3, (!(position >= 1 && position <= 3)))
+  }else if(gname === 'rock'){ // right
+    placeImage(3, (!(position >= 7 && position <= 9)))
+  }else if(gname === 'victory' || gname === 'thumbs_up'){//up
+    placeImage(-1, (position !== 1 && position !== 4 && position !== 7))
+  }else if(gname === 'scissors'){ //down
+    placeImage(1, (position !== 3 && position !== 6 && position !== 9))
   }
   //
 }
