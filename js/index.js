@@ -119,7 +119,7 @@ async function main() {
       checkGestureCombination(chosenHand, prediction.poseData)
     }
     // ...and so on
-    setTimeout(() => { estimateHands() }, 1000 / config.video.fps)
+    setTimeout(() => { estimateHands() }, 1000)
   }
 
 
@@ -176,6 +176,7 @@ function updateDebugInfo(data, hand, gname) {
     document.querySelector(`${summaryTable} span#dir-${fingerIdx}`).innerHTML = data[fingerIdx][2]
   }
   //Aqui <<<---- poner el codigo de app linea 45 - 61
+
   if(gname === 'paper'){ //left
     placeImage(-3, (!(position >= 1 && position <= 3)))
   }else if(gname === 'rock'){ // right
