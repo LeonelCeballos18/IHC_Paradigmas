@@ -147,6 +147,7 @@ async function initCamera(width, height, fps) {
   const stream = await navigator.mediaDevices.getUserMedia(constraints)
   video.srcObject = stream
 
+
   return new Promise(resolve => {
     video.onloadedmetadata = () => { resolve(video) }
   })
@@ -197,7 +198,8 @@ function placeImage(range, restrictions) {
   }
 }
 
-window.addEventListener("DOMContentLoaded", () => {
+const manos = document.getElementById("manos");
+manos.addEventListener("click", () => {
 
   initCamera(
     config.video.width, config.video.height, config.video.fps
@@ -214,3 +216,14 @@ window.addEventListener("DOMContentLoaded", () => {
   canvas.height = config.video.height
   console.log("Canvas initialized")
 })
+
+function stopStreamedVideo(video) {
+  const stream = video.srcObject;
+  const tracks = stream.getTracks();
+
+  tracks.forEach((track) => {
+    track.stop();
+  });
+
+  video.srcObject = null;
+}

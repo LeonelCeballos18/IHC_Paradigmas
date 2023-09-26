@@ -12,9 +12,11 @@ function displayN(){
         tactil.classList.toggle('esconder');
         if(btnManos.textContent == 'Tactil'){
             btnManos.textContent = 'Manos';
+            location.reload();
         }else{
             btnManos.textContent = 'Tactil';
         }
+
     })
 }
 
